@@ -1242,22 +1242,21 @@ function bmRender(){
   book.style.transform='scale('+BK_ZOOM/100+')';
   book.style.transformOrigin='center center';
 
-  // Build HTML
+  // Build HTML (clicks handled cleanly via event delegation to prevent double-firing)
   if(sp.single){
     // Single page mode (cover or back)
     const pg=sp.pages[0];
     book.className='bm-book single';
-    const clickAction = curSP === 0 ? 'bmNext()' : 'bmPrev()';
     const tip = curSP === 0 ? 'Click to open magazine (›)' : 'Click to go back (‹)';
-    book.innerHTML=`<div class="bm-pg ${pg.cls}" onclick="${clickAction}" title="${tip}">${pg.content}</div>`;
+    book.innerHTML=`<div class="bm-pg ${pg.cls}" title="${tip}">${pg.content}</div>`;
   } else {
     // Two-page spread
     const lp=sp.pages[0],rp=sp.pages[1];
     book.className='bm-book';
     book.innerHTML=`
-      <div class="bm-pg ${lp.cls}" onclick="bmPrev()" title="Click left page to go to previous page (‹)">${lp.content}</div>
+      <div class="bm-pg ${lp.cls}" title="Click left page to go back (‹)">${lp.content}</div>
       <div class="bm-spine"></div>
-      <div class="bm-pg ${rp.cls}" onclick="bmNext()" title="Click right page to turn to next page (›)">${rp.content}</div>
+      <div class="bm-pg ${rp.cls}" title="Click right page to turn next (›)">${rp.content}</div>
     `;
   }
 
@@ -1284,8 +1283,21 @@ function bmRender(){
   book.classList.add('mob-show');
 }
 
-function bmNext(){if(curSP<BK_SPREADS.length-1){curSP++;bmRender();}}
-function bmPrev(){if(curSP>0){curSP--;bmRender();}}
+let bmFlipping=false;
+function bmNext(){
+  if(bmFlipping||curSP>=BK_SPREADS.length-1)return;
+  bmFlipping=true;
+  curSP++;
+  bmRender();
+  setTimeout(()=>{bmFlipping=false},320);
+}
+function bmPrev(){
+  if(bmFlipping||curSP<=0)return;
+  bmFlipping=true;
+  curSP--;
+  bmRender();
+  setTimeout(()=>{bmFlipping=false},320);
+}
 
 // Download PDF via print
 function bmDownload(){
