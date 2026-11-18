@@ -395,6 +395,160 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,te
   .bm-book.single.mob-show .lp{display:flex!important;flex:1;border-radius:8px!important;box-shadow:0 12px 40px rgba(0,0,0,.7)!important}
 }
 
+
+/* ==================== COMPREHENSIVE MOBILE & TABLET RESPONSIVE STYLES ==================== */
+@media(max-width:900px){
+  .top .c{justify-content:center;gap:6px;font-size:.72rem;padding:6px 12px;text-align:center}
+  .top .c > div:first-child{width:100%;text-align:center;margin-bottom:2px}
+  .two,.split,.soc{grid-template-columns:1fr;gap:20px}
+  .fg{grid-template-columns:1fr 1fr;gap:20px}
+  .row,.row.ev{grid-template-columns:auto 1fr;gap:12px;padding:12px}
+  .wel{grid-template-columns:1fr;text-align:center;gap:16px}
+  .wel img{max-width:200px;margin:auto}
+  .ar{width:38px;height:38px;font-size:1.35rem}
+  .ar.l{left:4px}
+  .ar.r{right:4px}
+}
+
+@media(max-width:768px){
+  /* Container & Spacing */
+  .c{padding:0 16px}
+  .sec{padding:42px 0}
+  .st{margin-bottom:24px}
+  .st h2,.sec h2{font-size:1.65rem;line-height:1.25}
+
+  /* Header & Navigation */
+  header .c{padding:9px 14px;gap:10px}
+  .brand img{width:38px;height:38px}
+  .brand b{font-size:1.05rem}
+  .brand small{display:none}
+  nav{padding:14px 18px}
+  nav a{padding:12px 14px;font-size:.95rem;border-bottom:1px solid rgba(255,255,255,.06)}
+  nav a:last-child{border-bottom:none}
+
+  /* Hero Section */
+  .hero{min-height:auto;padding:46px 0 60px}
+  .hero h1{font-size:clamp(1.85rem,7.5vw,2.75rem);line-height:1.2;margin:0 auto 14px}
+  .hero p.s{font-size:.92rem;line-height:1.55;margin:0 auto 20px;padding:0 6px}
+  .hero .pill{font-size:.74rem;padding:4px 14px;margin-bottom:12px}
+  .hero .svc{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 auto 22px;max-width:360px}
+  .hero .svc > div{padding:8px 10px;background:rgba(16,27,54,.65);border-radius:8px;border:1px solid rgba(198,164,91,.35)}
+  .hero .svc > div:last-child{grid-column:span 2}
+  .hero .svc small{font-size:.68rem}
+  .hero .svc b{font-size:.88rem}
+  .hero .btn{width:100%;max-width:270px;margin:5px auto;display:block}
+  .hero .btn.o{width:100%;max-width:270px;margin:5px auto;display:block}
+  .hero .chev{margin-top:20px}
+
+  /* Carousel Tracks & Cards */
+  .car{padding:0 2px}
+  .track{gap:14px;padding:6px 6px 14px}
+  .track .card{flex:0 0 min(270px, 78vw)}
+  .card .b{padding:13px 15px}
+  .card h3{font-size:1.02rem}
+  .card p{font-size:.82rem}
+
+  /* Grids & Cards */
+  .grid{grid-template-columns:1fr;gap:16px}
+  .grid.r{grid-template-columns:repeat(2,1fr);gap:12px}
+  .grid.m{grid-template-columns:1fr;gap:16px}
+  .mv{grid-template-columns:1fr}
+  .mvc{max-width:100%;margin:0 auto}
+
+  /* What We Believe & Bible Institute Cards */
+  .bel-card{min-height:auto;padding:18px 16px;border-radius:14px}
+  .bel-card h3{font-size:1.15rem;margin-bottom:6px}
+  .bel-card p{font-size:.82rem;line-height:1.5}
+  .inst-card{border-radius:14px}
+  .inst-body{padding:16px 14px}
+  .inst-title{font-size:1.1rem}
+  .inst-desc{font-size:.8rem}
+
+  /* Faculty Preachers Showcase */
+  .fac-card{border-radius:14px}
+  .fac-body{padding:14px 12px}
+  .fac-name{font-size:1.05rem}
+  .fac-role{font-size:.78rem}
+
+  /* Magazine Filter Catalogue on Mobile */
+  .cat-layout{grid-template-columns:1fr;gap:18px}
+  .cat-top{flex-direction:column;align-items:stretch;gap:10px;margin-bottom:16px}
+  .cat-search-box{min-width:100%;width:100%}
+  .cat-search-box input{padding:11px 16px 11px 42px;font-size:.86rem;border-radius:10px}
+  .cat-sort-box{width:100%}
+  .cat-sort-box select{width:100%;padding:10px 16px;font-size:.82rem;border-radius:10px}
+  .cat-side{position:static;padding:14px 16px;border-radius:14px;box-shadow:0 4px 14px rgba(16,27,54,.04)}
+  .cat-side-head{margin-bottom:10px;padding-bottom:10px}
+  .cat-side-head h3{font-size:1.1rem}
+  .cat-sec{margin-bottom:12px;padding-bottom:10px}
+  .cat-sec h4{font-size:.7rem;margin-bottom:8px}
+  .cat-opt-list{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+  .cat-opt{font-size:.78rem}
+  .cat-grid{grid-template-columns:1fr;gap:14px}
+  .cat-card{border-radius:14px}
+  .cat-card-body{padding:16px 14px}
+  .cat-card-actions{gap:8px}
+  .cat-btn-det,.cat-btn-read{padding:8px 12px;font-size:.78rem}
+
+  /* Contact Us & Timings */
+  .form{padding:20px 16px;border-radius:14px}
+  .form h2{font-size:1.3rem;margin-bottom:12px}
+  .form input,.form textarea{padding:10px 12px;font-size:.84rem;margin-bottom:8px}
+  .form button{padding:11px;font-size:.92rem;width:100%}
+  iframe.map{height:250px}
+
+  /* Footer */
+  footer{padding:38px 0 0}
+  .fg{grid-template-columns:1fr;gap:22px;text-align:center}
+  .fg .brand{justify-content:center}
+  .fg ul{padding:0;list-style:none}
+  .copy{padding:14px 10px;font-size:.74rem}
+
+  /* Video Popup Modal */
+  .vid-modal{width:min(96vw, 540px);border-radius:14px}
+  .vid-modal-body{padding:12px 14px 16px}
+  .vid-modal-title{font-size:1.05rem}
+  .vid-modal-sub{font-size:.78rem}
+  .vid-modal-desc{font-size:.78rem;line-height:1.45}
+  .vid-modal .x-btn{width:30px;height:30px;top:8px;right:8px;font-size:.9rem}
+
+  /* 3D Book Magazine Reader on Mobile (All pages fully visible and scrollable) */
+  .bm-hdr{padding:8px 12px;gap:6px}
+  .bm-brand-name{font-size:.84rem;display:block}
+  .bm-brand-sub{display:none}
+  .bm-center{display:block;text-align:center}
+  .bm-issue-ttl{font-size:.82rem}
+  .bm-issue-thm{display:none}
+  .bm-acts{gap:5px}
+  .bm-act{padding:5px 8px;font-size:.72rem}
+  .bm-act span{display:none}
+  .bm-close-x{width:28px;height:28px;font-size:.85rem}
+  
+  .bm-stage{padding:8px 4px}
+  .bm-nav{width:34px;height:34px;font-size:1.25rem;background:rgba(16,27,54,.95);border-color:#c6a45b}
+  .bm-nav.left{left:2px}
+  .bm-nav.right{right:2px}
+
+  .bm-book{width:min(96vw, 440px)!important;max-height:calc(100vh - 110px);border-radius:10px}
+  .bm-book.single{width:min(96vw, 440px)!important}
+  .bm-pg{padding:16px 14px!important;border-radius:10px!important}
+  .pt1{font-size:1.25rem!important}
+  .pt2{font-size:.74rem!important}
+  .pbd{font-size:.74rem!important;line-height:1.65!important}
+  
+  .bmf{padding:8px 12px;gap:8px}
+  .bm-plbl{font-size:.68rem}
+  .bm-zm{display:none}
+}
+
+@media(max-width:440px){
+  .cat-opt-list{grid-template-columns:1fr}
+  .grid.r{grid-template-columns:1fr}
+  .hero .svc{grid-template-columns:1fr}
+  .hero .svc > div:last-child{grid-column:auto}
+  .ar{display:none} /* Use natural horizontal touch swipe on small phones */
+}
+
 </style>
 </head>
 <body>
@@ -1216,9 +1370,26 @@ function bmPages(k){
   ];
 }
 
+function bmPagesMobile(k){
+  // Generate flat 10 individual pages so mobile displays every page completely
+  const spreads = bmPages(k);
+  const flat = [];
+  spreads.forEach(sp => {
+    sp.pages.forEach(pg => {
+      flat.push({
+        label: pg.num ? 'Page ' + pg.num : sp.label,
+        single: true,
+        pages: [pg]
+      });
+    });
+  });
+  return flat;
+}
+
 function openBookReader(k){
   curBK=k;curSP=0;BK_ZOOM=100;
-  BK_SPREADS=bmPages(k);
+  const isMob = window.innerWidth <= 768;
+  BK_SPREADS = isMob ? bmPagesMobile(k) : bmPages(k);
   const pts=k.split('-'),y=pts[0]||'2026',n=Number(pts[1])||1;
   const mn=M[n-1]||'Monthly',th=(DATA.mags[k]&&DATA.mags[k].theme)||THEMES[(n-1)%12]||'Living by Faith';
   const tEl=$('bmIssueTitle'),sEl=$('bmIssueTheme');
@@ -1357,6 +1528,21 @@ document.addEventListener('keydown',e=>{
   if(e.key==='ArrowRight'||e.key==='PageDown')bmNext();
   if(e.key==='ArrowLeft'||e.key==='PageUp')bmPrev();
   if(e.key==='Escape')closeBookReader();
+});
+
+
+window.addEventListener('resize', () => {
+  const bm = $('bookModal');
+  if(bm && bm.classList.contains('on') && curBK){
+    const wasMob = BK_SPREADS.length === 10;
+    const nowMob = window.innerWidth <= 768;
+    if(wasMob !== nowMob){
+      BK_SPREADS = nowMob ? bmPagesMobile(curBK) : bmPages(curBK);
+      curSP = Math.min(curSP, BK_SPREADS.length - 1);
+      const sl = $('bmSlider'); if(sl) sl.max = BK_SPREADS.length - 1;
+      bmRender();
+    }
+  }
 });
 
 </script>
