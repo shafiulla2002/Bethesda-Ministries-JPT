@@ -321,11 +321,11 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,te
 .bm-book{display:flex;height:100%;width:min(1040px,100%);box-shadow:0 32px 90px rgba(0,0,0,.9),0 10px 30px rgba(0,0,0,.55);animation:bmFadeIn .3s ease}
 @keyframes bmFadeIn{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
 .bm-book.single{width:min(500px,55%);margin:0 auto}
-.bm-pg{flex:1;min-width:0;height:100%;background:#fdf8f0;overflow-y:auto;overflow-x:hidden;padding:26px 28px 16px;box-sizing:border-box;display:flex;flex-direction:column;scrollbar-width:thin;scrollbar-color:rgba(198,164,91,.5) #f0ead8}
+.bm-pg{flex:1;min-width:0;height:100%;background:#fdf8f0;overflow-y:auto;overflow-x:hidden;padding:26px 28px 16px;box-sizing:border-box;display:flex;flex-direction:column;scrollbar-width:thin;scrollbar-color:rgba(198,164,91,.5) #f0ead8;cursor:pointer;user-select:none;transition:box-shadow .2s ease}
 .bm-pg::-webkit-scrollbar{width:4px}
 .bm-pg::-webkit-scrollbar-thumb{background:rgba(198,164,91,.5);border-radius:2px}
-.bm-pg.lp{border-radius:4px 0 0 4px;box-shadow:inset -20px 0 32px -10px rgba(0,0,0,.16)}
-.bm-pg.rp{border-radius:0 10px 10px 0;box-shadow:inset 20px 0 32px -10px rgba(0,0,0,.16)}
+.bm-pg.lp{border-radius:4px 0 0 4px;box-shadow:inset -20px 0 32px -10px rgba(0,0,0,.16);cursor:pointer}.bm-pg.lp:hover{box-shadow:inset -20px 0 32px -10px rgba(0,0,0,.16), inset 0 0 25px rgba(198,164,91,.08)}
+.bm-pg.rp{border-radius:0 10px 10px 0;box-shadow:inset 20px 0 32px -10px rgba(0,0,0,.16);cursor:pointer}.bm-pg.rp:hover{box-shadow:inset 20px 0 32px -10px rgba(0,0,0,.16), inset 0 0 25px rgba(198,164,91,.08)}
 .bm-spine{width:10px;flex-shrink:0;background:linear-gradient(to right,#7a6240 0%,#c8b286 25%,#e6d4a0 48%,#c8b286 65%,#7a6240 88%,#4e3820 100%);box-shadow:0 0 18px rgba(0,0,0,.5)}
 .phd{display:flex;justify-content:space-between;align-items:center;font:600 .68rem Poppins,sans-serif;color:#c6a45b;padding-bottom:7px;border-bottom:1.5px solid #c6a45b;margin-bottom:14px;flex-shrink:0;letter-spacing:.04em}
 .pt1{font:800 1.55rem 'Playfair Display',serif;color:#1a2744;line-height:1.22;margin-bottom:3px}
@@ -1247,15 +1247,17 @@ function bmRender(){
     // Single page mode (cover or back)
     const pg=sp.pages[0];
     book.className='bm-book single';
-    book.innerHTML=`<div class="bm-pg ${pg.cls}">${pg.content}</div>`;
+    const clickAction = curSP === 0 ? 'bmNext()' : 'bmPrev()';
+    const tip = curSP === 0 ? 'Click to open magazine (›)' : 'Click to go back (‹)';
+    book.innerHTML=`<div class="bm-pg ${pg.cls}" onclick="${clickAction}" title="${tip}">${pg.content}</div>`;
   } else {
     // Two-page spread
     const lp=sp.pages[0],rp=sp.pages[1];
     book.className='bm-book';
     book.innerHTML=`
-      <div class="bm-pg ${lp.cls}">${lp.content}</div>
+      <div class="bm-pg ${lp.cls}" onclick="bmPrev()" title="Click left page to go to previous page (‹)">${lp.content}</div>
       <div class="bm-spine"></div>
-      <div class="bm-pg ${rp.cls}">${rp.content}</div>
+      <div class="bm-pg ${rp.cls}" onclick="bmNext()" title="Click right page to turn to next page (›)">${rp.content}</div>
     `;
   }
 
@@ -1306,6 +1308,16 @@ function bmDownload(){
 document.addEventListener('click',e=>{
   const t=e.target;
   if(t.id==='bmCloseBtn'||t.closest('#bmCloseBtn')){closeBookReader();return;}
+  // Click on right page -> Next spread
+  const clickedRightPg = t.closest('.bm-pg.rp');
+  if(clickedRightPg){ bmNext(); return; }
+  // Click on left page -> Prev spread (or Next if on cover)
+  const clickedLeftPg = t.closest('.bm-pg.lp');
+  if(clickedLeftPg){
+    if(curSP === 0){ bmNext(); }
+    else { bmPrev(); }
+    return;
+  }
   if(t.id==='bmNext'||t.closest('#bmNext')){bmNext();return;}
   if(t.id==='bmPrev'||t.closest('#bmPrev')){bmPrev();return;}
   if(t.id==='bmDlBtn'||t.closest('#bmDlBtn')){bmDownload();return;}
