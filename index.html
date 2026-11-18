@@ -296,86 +296,103 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,te
 @media(max-width:900px){.wel{grid-template-columns:1fr;text-align:center}.wel img{max-width:220px;margin:auto}.ar.l{left:2px}.ar.r{right:2px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
-/* ==================== 3D BOOK MAGAZINE READER ==================== */
-#bookModal{position:fixed;inset:0;z-index:250;background:rgba(4,9,22,0.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:none;flex-direction:column;align-items:center;justify-content:space-between;padding:10px 14px;color:#fff;overflow:hidden;box-sizing:border-box}
+/* ==================== 3D BOOK MAGAZINE READER v2 ==================== */
+#bookModal{position:fixed;inset:0;z-index:250;background:#0b1428;display:none;flex-direction:column;align-items:stretch;overflow:hidden}
 #bookModal.on{display:flex}
-
-.book-header{width:100%;max-width:1080px;display:flex;align-items:center;justify-content:space-between;padding:8px 14px;background:rgba(16,27,54,0.88);border:1px solid rgba(198,164,91,0.4);border-radius:12px;margin-bottom:6px;box-shadow:0 8px 24px rgba(0,0,0,0.55);box-sizing:border-box}
-.book-header-info{display:flex;align-items:center;gap:12px}
-.book-header-icon{font-size:1.6rem}
-.book-header-title{font:700 1.05rem 'Playfair Display',serif;color:#fff;line-height:1.2}
-.book-header-sub{font-size:0.78rem;color:var(--gl);font-weight:500}
-
-.book-header-nav{display:flex;align-items:center;gap:10px}
-.book-page-badge{background:rgba(198,164,91,0.22);border:1px solid var(--gold);color:#fff;padding:5px 14px;border-radius:20px;font:600 0.8rem Poppins;letter-spacing:0.04em}
-.book-btn{background:rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.25);border-radius:8px;padding:6px 14px;cursor:pointer;font:600 0.82rem Poppins;transition:all .2s ease;display:inline-flex;align-items:center;gap:6px}
-.book-btn:hover{background:var(--gold);color:var(--navy);border-color:var(--gold)}
-.book-btn-close{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);color:#fff;border:1.5px solid rgba(255,255,255,0.4);font-size:1.05rem;display:grid;place-items:center;cursor:pointer;transition:all .2s ease}
-.book-btn-close:hover{background:var(--cross);border-color:#fff;transform:scale(1.08)}
-
-.book-stage{position:relative;width:100%;max-width:1080px;flex:1;display:flex;align-items:center;justify-content:center;perspective:2200px;perspective-origin:50% 50%;padding:8px 0;box-sizing:border-box}
-.book-side-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:30;width:46px;height:46px;border-radius:50%;background:rgba(16,27,54,0.92);color:var(--gold);border:1.5px solid var(--gold);font-size:1.8rem;display:grid;place-items:center;cursor:pointer;transition:all .2s ease;box-shadow:0 8px 24px rgba(0,0,0,0.65)}
-.book-side-btn:hover{background:var(--gold);color:var(--navy);transform:translateY(-50%) scale(1.1)}
-.book-side-btn.left{left:4px}
-.book-side-btn.right{right:4px}
-.book-side-btn:disabled{opacity:0.25;cursor:not-allowed;pointer-events:none}
-
-.book-container{position:relative;width:100%;max-width:960px;height:min(620px,73vh);display:flex;justify-content:center;align-items:center;transform-style:preserve-3d;transition:transform .4s ease}
-
-.book-spread{display:flex;width:100%;height:100%;box-shadow:0 24px 60px rgba(0,0,0,0.85);border-radius:10px;overflow:hidden;background:#fdfbf7;position:relative;transform-style:preserve-3d;animation:bookAppear .35s ease}
-@keyframes bookAppear{from{opacity:0.75;transform:scale(0.97)}to{opacity:1;transform:scale(1)}}
-
-.book-single{width:min(480px,94vw);height:100%;box-shadow:0 24px 60px rgba(0,0,0,0.85);border-radius:12px;overflow:hidden;background:#fdfbf7;position:relative;margin:0 auto;animation:bookAppear .35s ease;display:flex;flex-direction:column}
-
-.book-spine{width:6px;background:linear-gradient(to right, rgba(0,0,0,0.22), rgba(210,195,175,0.95), rgba(0,0,0,0.22));height:100%;box-shadow:0 0 10px rgba(0,0,0,0.4);position:relative;z-index:5;flex-shrink:0}
-
-.book-page{flex:1;height:100%;background:#fdfbf7;color:#1e293b;padding:26px 30px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow-y:auto;box-sizing:border-box}
-.book-page.left{box-shadow:inset -16px 0 24px -10px rgba(0,0,0,0.14)}
-.book-page.right{box-shadow:inset 16px 0 24px -10px rgba(0,0,0,0.14)}
-
-.bp-header{border-bottom:1.5px solid rgba(198,164,91,0.4);padding-bottom:6px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--gold);font-weight:700}
-.bp-footer{border-top:1px solid rgba(0,0,0,0.08);padding-top:6px;margin-top:10px;display:flex;justify-content:space-between;align-items:center;font-size:0.72rem;color:#64748b}
-.bp-num{font-weight:700;color:var(--navy)}
-
-.bp-title{font:700 1.25rem 'Playfair Display',serif;color:var(--navy);line-height:1.25;margin-bottom:6px}
-.bp-sub{font:600 0.82rem Poppins;color:#8a6a25;margin-bottom:10px}
-.bp-scripture{background:rgba(198,164,91,0.12);border-left:3px solid var(--gold);padding:8px 12px;font-style:italic;font-size:0.8rem;color:#334155;margin-bottom:12px;line-height:1.5;border-radius:0 6px 6px 0}
-.bp-content{font-size:0.82rem;line-height:1.62;color:#334155;flex:1}
-.bp-content p{margin-bottom:8px}
-.bp-content h4{font:700 0.92rem 'Playfair Display',serif;color:var(--navy);margin:8px 0 3px}
-.bp-dropcap::first-letter{font-size:2.3rem;float:left;line-height:0.85;padding:4px 6px 0 0;color:var(--navy);font-family:'Playfair Display',serif;font-weight:700}
-
-.bp-cover{background:linear-gradient(145deg, #0d172e 0%, #15254a 50%, #0d172e 100%);color:#fff;border:2px solid rgba(198,164,91,0.5);border-radius:12px;padding:28px 24px;box-shadow:inset 0 0 40px rgba(0,0,0,0.6);text-align:center;position:relative;height:100%;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between}
-.bp-cover .cov-cross{font-size:2rem;color:var(--gold);margin-bottom:4px;filter:drop-shadow(0 2px 8px rgba(198,164,91,0.4))}
-.bp-cover .cov-church{font:700 1.1rem 'Playfair Display',serif;letter-spacing:0.1em;text-transform:uppercase;color:#fff}
-.bp-cover .cov-loc{font-size:0.72rem;letter-spacing:0.08em;color:var(--gl);text-transform:uppercase;margin-bottom:12px}
-.bp-cover .cov-badge{display:inline-block;background:rgba(198,164,91,0.22);border:1.5px solid var(--gold);color:#fff;padding:5px 16px;border-radius:24px;font:700 0.8rem Poppins;letter-spacing:0.05em;margin-bottom:12px}
-.bp-cover .cov-theme{font:800 1.55rem 'Playfair Display',serif;color:var(--gold);line-height:1.2;margin-bottom:10px;text-shadow:0 3px 12px rgba(0,0,0,0.7)}
-.bp-cover .cov-quote{font-style:italic;font-size:0.8rem;color:#e2e8f0;background:rgba(255,255,255,0.08);padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);margin-bottom:12px}
-.bp-cover .cov-features{text-align:left;background:rgba(0,0,0,0.32);border:1px solid rgba(198,164,91,0.3);padding:10px 14px;border-radius:8px;font-size:0.76rem;color:#cbd5e1;line-height:1.65}
-.bp-cover .cov-features li{list-style:none;position:relative;padding-left:14px}
-.bp-cover .cov-features li::before{content:"✦";position:absolute;left:0;color:var(--gold)}
-
-.bp-back{background:linear-gradient(145deg, #0d172e 0%, #15254a 60%, #0a1326 100%);color:#fff;border:2px solid rgba(198,164,91,0.5);border-radius:12px;padding:28px 24px;text-align:center;height:100%;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between}
-.bp-back .bc-title{font:700 1.2rem 'Playfair Display',serif;color:var(--gold);margin-bottom:10px}
-.bp-back table{width:100%;border-collapse:collapse;font-size:0.76rem;margin-bottom:12px;text-align:left}
-.bp-back td{padding:5px 6px;border-bottom:1px solid rgba(255,255,255,0.1);color:#e2e8f0}
-.bp-back td:first-child{color:var(--gl);font-weight:600}
-.bp-back .bc-benediction{font-style:italic;font-size:0.78rem;color:var(--gl);background:rgba(198,164,91,0.15);border:1px solid var(--gold);padding:8px 12px;border-radius:8px;margin-top:10px;line-height:1.45}
-
-.book-footer{width:100%;max-width:1080px;display:flex;flex-direction:column;align-items:center;gap:4px;box-sizing:border-box}
-.book-scrubber{display:flex;align-items:center;gap:5px;flex-wrap:wrap;justify-content:center}
-.book-tab{background:rgba(255,255,255,0.12);color:#cbd5e1;border:1px solid rgba(255,255,255,0.2);padding:3px 9px;border-radius:6px;font:600 0.72rem Poppins;cursor:pointer;transition:all .2s ease}
-.book-tab:hover{background:rgba(198,164,91,0.3);color:#fff}
-.book-tab.on{background:var(--gold);color:var(--navy);border-color:var(--gold);font-weight:700}
-.book-tip{font-size:0.7rem;color:#94a3b8}
-
-@media(max-width:820px){
-  .book-spread{display:none}
-  .book-single{display:flex;flex-direction:column;height:100%;width:min(94vw,440px)}
-  .book-page{padding:18px 16px}
-  .book-header{padding:6px 10px}
-  .book-header-sub{display:none}
+.bm-hdr{display:flex;align-items:center;justify-content:space-between;padding:11px 20px;background:#0d1b3e;border-bottom:1px solid rgba(198,164,91,0.35);flex-shrink:0;gap:10px}
+.bm-brand{display:flex;align-items:center;gap:11px;min-width:0;flex-shrink:0}
+.bm-brand-icon{font-size:1.55rem;flex-shrink:0}
+.bm-brand-name{font:700 .95rem 'Playfair Display',serif;color:#fff;line-height:1.2;white-space:nowrap}
+.bm-brand-sub{font:500 .66rem Poppins,sans-serif;color:var(--gl);letter-spacing:.04em}
+.bm-center{text-align:center;min-width:0;flex:1}
+.bm-issue-ttl{font:700 1rem 'Playfair Display',serif;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bm-issue-thm{font:400 .73rem Poppins,sans-serif;color:var(--gl)}
+.bm-acts{display:flex;align-items:center;gap:7px;flex-shrink:0}
+.bm-act{display:flex;align-items:center;gap:5px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:6px 13px;border-radius:7px;font:600 .73rem Poppins,sans-serif;cursor:pointer;transition:all .2s;white-space:nowrap}
+.bm-act:hover{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.bm-close-x{width:30px;height:30px;border-radius:50%;background:rgba(255,70,70,.18);border:1px solid rgba(255,100,100,.4);color:#fff;font-size:.9rem;display:grid;place-items:center;cursor:pointer;transition:all .2s;flex-shrink:0}
+.bm-close-x:hover{background:#e53e3e;border-color:#e53e3e}
+.bm-stage{flex:1;display:flex;align-items:center;justify-content:center;padding:16px 68px;background:radial-gradient(ellipse at 50% 42%,#1a2f5e 0%,#0b1428 70%);position:relative;overflow:hidden;min-height:0}
+.bm-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.24);color:#fff;font-size:1.5rem;display:grid;place-items:center;cursor:pointer;transition:all .25s;z-index:10}
+.bm-nav:hover{background:var(--gold);color:var(--navy);border-color:var(--gold);transform:translateY(-50%) scale(1.1)}
+.bm-nav:disabled{opacity:.22;cursor:not-allowed;pointer-events:none}
+.bm-nav.left{left:10px}
+.bm-nav.right{right:10px}
+.bm-book{display:flex;height:100%;width:min(1040px,100%);box-shadow:0 32px 90px rgba(0,0,0,.9),0 10px 30px rgba(0,0,0,.55);animation:bmFadeIn .3s ease}
+@keyframes bmFadeIn{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
+.bm-book.single{width:min(500px,55%);margin:0 auto}
+.bm-pg{flex:1;min-width:0;height:100%;background:#fdf8f0;overflow-y:auto;overflow-x:hidden;padding:26px 28px 16px;box-sizing:border-box;display:flex;flex-direction:column;scrollbar-width:thin;scrollbar-color:rgba(198,164,91,.5) #f0ead8}
+.bm-pg::-webkit-scrollbar{width:4px}
+.bm-pg::-webkit-scrollbar-thumb{background:rgba(198,164,91,.5);border-radius:2px}
+.bm-pg.lp{border-radius:4px 0 0 4px;box-shadow:inset -20px 0 32px -10px rgba(0,0,0,.16)}
+.bm-pg.rp{border-radius:0 10px 10px 0;box-shadow:inset 20px 0 32px -10px rgba(0,0,0,.16)}
+.bm-spine{width:10px;flex-shrink:0;background:linear-gradient(to right,#7a6240 0%,#c8b286 25%,#e6d4a0 48%,#c8b286 65%,#7a6240 88%,#4e3820 100%);box-shadow:0 0 18px rgba(0,0,0,.5)}
+.phd{display:flex;justify-content:space-between;align-items:center;font:600 .68rem Poppins,sans-serif;color:#c6a45b;padding-bottom:7px;border-bottom:1.5px solid #c6a45b;margin-bottom:14px;flex-shrink:0;letter-spacing:.04em}
+.pt1{font:800 1.55rem 'Playfair Display',serif;color:#1a2744;line-height:1.22;margin-bottom:3px}
+.pt2{font:400 .8rem Poppins,sans-serif;color:#64748b;margin-bottom:11px}
+.pau{display:flex;align-items:center;gap:7px;color:#8b7355;font:600 .78rem Poppins,sans-serif;margin-bottom:11px}
+.psc{display:flex;gap:9px;align-items:flex-start;background:#fdf4e0;border:1px solid rgba(198,164,91,.5);border-radius:8px;padding:9px 13px;margin-bottom:12px;flex-shrink:0}
+.psc .si{font-size:.95rem;flex-shrink:0;margin-top:1px}
+.psc .st{font:italic 400 .77rem 'Playfair Display',serif;color:#4a3728;line-height:1.55}
+.pqb{display:flex;gap:9px;background:#f8f5ef;border-left:3px solid #c6a45b;border-radius:0 7px 7px 0;padding:9px 13px;margin-bottom:12px;flex-shrink:0}
+.pqb .qq{font:700 2.1rem 'Playfair Display',serif;color:#c6a45b;line-height:.75;flex-shrink:0;margin-top:3px}
+.pqb .qt{font:italic 400 .77rem 'Playfair Display',serif;color:#4a3728;line-height:1.55}
+.pbd{font:400 .78rem Georgia,serif;color:#2c3e50;line-height:1.72;flex:1}
+.pbd p{margin-bottom:8px}
+.pbd h4{font:700 .86rem 'Playfair Display',serif;color:#1a2744;margin:9px 0 3px}
+.pbd ul,.pbd ol{padding-left:16px;margin-bottom:8px}
+.pbd li{margin-bottom:4px}
+.pbd strong{color:#1a2744}
+.pdrop::first-letter{float:left;font:800 2.9rem 'Playfair Display',serif;color:#1a2744;line-height:.8;padding:5px 7px 2px 0}
+.pim{width:100%;border-radius:7px;overflow:hidden;margin:10px 0;flex-shrink:0}
+.pim img{width:100%;height:148px;object-fit:cover;border-radius:7px;display:block}
+.ptoc{background:#f8f5ef;border:1px solid rgba(198,164,91,.4);border-radius:9px;padding:11px 14px;margin-top:9px;flex-shrink:0}
+.ptoc-h{display:flex;align-items:center;justify-content:space-between;font:700 .82rem 'Playfair Display',serif;color:#1a2744;margin-bottom:7px}
+.ptoc-r{display:flex;align-items:baseline;gap:3px;font:400 .7rem Poppins,sans-serif;color:#334155;padding:2px 0;border-bottom:1px solid rgba(0,0,0,.05)}
+.ptoc-r:last-child{border:none}
+.ptn{color:#c6a45b;font-weight:700;min-width:16px;flex-shrink:0}
+.ptt{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ptd{flex:0 1 40px;border-bottom:1px dotted #94a3b8;margin:0 4px 2px;min-width:8px}
+.ptp{color:#c6a45b;font-weight:700;min-width:38px;text-align:right;flex-shrink:0;white-space:nowrap}
+.pft{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:8px;border-top:1px solid rgba(0,0,0,.08);flex-shrink:0}
+.pft .fc{font:400 .66rem Poppins,sans-serif;color:#94a3b8}
+.pft .fn{width:24px;height:24px;border-radius:50%;background:#c6a45b;color:#fff;font:700 .7rem Poppins,sans-serif;display:grid;place-items:center;flex-shrink:0}
+.pcov{flex:1;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(155deg,#0d1b3e 0%,#1a3060 45%,#0d172e 100%);color:#fff;padding:28px 24px;position:relative;overflow:hidden;border-radius:4px 0 0 4px}
+.pcov::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(198,164,91,.14) 0%,transparent 65%);pointer-events:none}
+.pcov-cr{font-size:2rem;color:#c6a45b;margin-bottom:3px;position:relative;z-index:1}
+.pcov-ch{font:700 1rem 'Playfair Display',serif;letter-spacing:.09em;text-transform:uppercase;color:#fff;position:relative;z-index:1}
+.pcov-lc{font-size:.67rem;letter-spacing:.08em;color:var(--gl);text-transform:uppercase;margin-bottom:14px;position:relative;z-index:1}
+.pcov-bd{display:inline-block;background:rgba(198,164,91,.22);border:1.5px solid #c6a45b;color:#fff;padding:4px 14px;border-radius:22px;font:700 .73rem Poppins,sans-serif;letter-spacing:.06em;margin-bottom:11px;position:relative;z-index:1}
+.pcov-th{font:800 1.45rem 'Playfair Display',serif;color:#c6a45b;line-height:1.22;margin-bottom:9px;text-shadow:0 2px 10px rgba(0,0,0,.55);position:relative;z-index:1}
+.pcov-qv{font:italic 400 .76rem Poppins,sans-serif;color:#e2e8f0;background:rgba(255,255,255,.08);padding:7px 11px;border-radius:7px;border:1px solid rgba(255,255,255,.12);margin-bottom:11px;line-height:1.5;position:relative;z-index:1}
+.pcov-fl{text-align:left;background:rgba(0,0,0,.3);border:1px solid rgba(198,164,91,.3);padding:9px 13px;border-radius:7px;font-size:.71rem;color:#cbd5e1;line-height:1.65;position:relative;z-index:1}
+.pcov-fl li{list-style:none;padding-left:12px;position:relative;margin-bottom:1px}
+.pcov-fl li::before{content:"✦";position:absolute;left:0;color:#c6a45b;font-size:.6rem;top:2px}
+.pcov-vl{font-size:.65rem;color:var(--gl);margin-top:9px;letter-spacing:.07em;text-transform:uppercase;position:relative;z-index:1}
+.pbk{flex:1;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(155deg,#0d1b3e 0%,#15254a 55%,#0a1326 100%);color:#fff;padding:26px 22px;border-radius:0 10px 10px 0}
+.pbk-ttl{font:700 1.1rem 'Playfair Display',serif;color:#c6a45b;margin-bottom:9px}
+.pbk table{width:100%;border-collapse:collapse;font-size:.72rem;margin-bottom:11px;text-align:left}
+.pbk td{padding:4px 5px;border-bottom:1px solid rgba(255,255,255,.1);color:#e2e8f0}
+.pbk td:first-child{color:var(--gl);font-weight:600;white-space:nowrap;padding-right:10px}
+.pbk-bn{font:italic 400 .73rem 'Playfair Display',serif;color:var(--gl);background:rgba(198,164,91,.12);border:1px solid rgba(198,164,91,.4);padding:8px 12px;border-radius:7px;margin-top:9px;line-height:1.5}
+.bmf{display:flex;align-items:center;gap:14px;padding:9px 20px;background:#0d1b3e;border-top:1px solid rgba(198,164,91,.3);flex-shrink:0}
+.bm-plbl{display:flex;align-items:center;gap:7px;color:#cbd5e1;font:600 .72rem Poppins,sans-serif;white-space:nowrap}
+.bm-sld{flex:1;-webkit-appearance:none;height:3px;border-radius:2px;background:rgba(255,255,255,.18);cursor:pointer;outline:none}
+.bm-sld::-webkit-slider-thumb{-webkit-appearance:none;width:17px;height:17px;border-radius:50%;background:#c6a45b;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.5)}
+.bm-sld::-moz-range-thumb{width:17px;height:17px;border-radius:50%;background:#c6a45b;cursor:pointer;border:none;box-shadow:0 2px 8px rgba(0,0,0,.5)}
+.bm-zm{display:flex;align-items:center;gap:5px}
+.bm-zb{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;width:26px;height:26px;border-radius:5px;font-size:.9rem;display:grid;place-items:center;cursor:pointer;transition:all .18s}
+.bm-zb:hover{background:var(--gold);color:var(--navy)}
+.bm-zp{color:#cbd5e1;font:600 .72rem Poppins,sans-serif;min-width:34px;text-align:center}
+@media(max-width:760px){
+  .bm-brand-name,.bm-brand-sub,.bm-act span,.bm-center{display:none}
+  .bm-stage{padding:10px 50px}
+  .bm-book{display:none!important}
+  .bm-book.mob-show{display:flex!important}
+  .bm-book.mob-show .lp,.bm-book.mob-show .bm-spine{display:none!important}
+  .bm-book.mob-show .rp{flex:1;border-radius:8px!important;box-shadow:0 12px 40px rgba(0,0,0,.7)!important}
+  .bm-book.single.mob-show .rp{display:none!important}
+  .bm-book.single.mob-show .lp{display:flex!important;flex:1;border-radius:8px!important;box-shadow:0 12px 40px rgba(0,0,0,.7)!important}
 }
 
 </style>
@@ -391,33 +408,48 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,te
 <main id="main"></main>
 <footer><div class="c"><div class="fg" id="fg"></div></div><div class="copy">© 2026 Bethesda Ministries JPT. Open to everyone. No login required.</div></footer>
 <div id="modal"><div id="mb"></div></div>
-<!-- 3D Book Magazine Reader Modal -->
-<div id="bookModal" role="dialog" aria-modal="true" aria-label="3D Magazine Reader">
-  <div class="book-header">
-    <div class="book-header-info">
-      <span class="book-header-icon">📖</span>
+<!-- 3D Book Magazine Reader Modal v2 -->
+<div id="bookModal" role="dialog" aria-modal="true" aria-label="Magazine Reader">
+
+  <!-- Top Header Bar -->
+  <div class="bm-hdr">
+    <div class="bm-brand">
+      <span class="bm-brand-icon">📖</span>
       <div>
-        <div class="book-header-title" id="bmTitle">Bethesda Monthly Magazine</div>
-        <div class="book-header-sub" id="bmSub">Issue · 3D Interactive Reader</div>
+        <div class="bm-brand-name">Bethesda Ministries</div>
+        <div class="bm-brand-sub">3D Magazine Reader</div>
       </div>
     </div>
-    <div class="book-header-nav">
-      <div class="book-page-badge" id="bmPageBadge">Cover (Page 1)</div>
-      <button class="book-btn-close" id="bmCloseBtn" aria-label="Close Reader">✕</button>
+    <div class="bm-center">
+      <div class="bm-issue-ttl" id="bmIssueTitle">Monthly Magazine</div>
+      <div class="bm-issue-thm" id="bmIssueTheme">Theme: —</div>
+    </div>
+    <div class="bm-acts">
+      <button class="bm-act" id="bmDlBtn" title="Download PDF">⬇ <span>Download PDF</span></button>
+      <button class="bm-act" id="bmFsBtn" title="Fullscreen">⛶ <span>Fullscreen</span></button>
+      <button class="bm-act" id="bmShBtn" title="Share">↑ <span>Share</span></button>
+      <button class="bm-close-x" id="bmCloseBtn" title="Close">✕</button>
     </div>
   </div>
 
-  <div class="book-stage">
-    <button class="book-side-btn left" id="bmPrevBtn" aria-label="Previous Page">‹</button>
-    <div class="book-container" id="bmContainer">
-      <!-- 3D Book Pages rendered dynamically here -->
+  <!-- Book Stage -->
+  <div class="bm-stage">
+    <button class="bm-nav left" id="bmPrev" aria-label="Previous page" disabled>‹</button>
+    <div class="bm-book" id="bmBook">
+      <!-- Pages rendered here dynamically -->
     </div>
-    <button class="book-side-btn right" id="bmNextBtn" aria-label="Next Page">›</button>
+    <button class="bm-nav right" id="bmNext" aria-label="Next page">›</button>
   </div>
 
-  <div class="book-footer">
-    <div class="book-scrubber" id="bmScrubber"></div>
-    <div class="book-tip">Tip: Click ‹ / › buttons or use ◀ / ▶ arrow keys to flip pages · Click ✕ or Esc to close</div>
+  <!-- Footer / Controls -->
+  <div class="bmf">
+    <div class="bm-plbl">📖 <span id="bmPgLabel">Pages: 1 of 10</span></div>
+    <input type="range" class="bm-sld" id="bmSlider" min="0" value="0" step="1">
+    <div class="bm-zm">
+      <button class="bm-zb" id="bmZmOut">−</button>
+      <span class="bm-zp" id="bmZmPct">100%</span>
+      <button class="bm-zb" id="bmZmIn">+</button>
+    </div>
   </div>
 </div>
 
@@ -973,403 +1005,334 @@ let vi=0;setInterval(()=>{const v=$('vod');if(v&&cur==='home'){vi=(vi+1)%V.lengt
 (async()=>{if(CFG.CONTENT_URL){try{Object.assign(DATA,await (await fetch(CFG.CONTENT_URL,{cache:'no-store'})).json())}catch(e){}}
  fixIm();const h=(location.hash||'#home').slice(1).replace(/[^a-z]/g,'');cur=h||'home';build();if(!$(cur))go('home')})();
 
-/* ==================== 3D BOOK MAGAZINE READER ENGINE ==================== */
-const SCRIPTURES_12 = [
-  'Behold, I will do a new thing; now it shall spring forth. — Isaiah 43:19',
-  'Beloved, let us love one another: for love is of God. — 1 John 4:7',
-  'My grace is sufficient for thee: for my strength is made perfect in weakness. — 2 Corinthians 12:9',
-  'He is not here: for he is risen, as he said. Come, see the place where the Lord lay. — Matthew 28:6',
-  'The effectual fervent prayer of a righteous man availeth much. — James 5:16',
-  'As for me and my house, we will serve the Lord. — Joshua 24:15',
-  'The grass withereth, the flower fadeth: but the word of our God shall stand for ever. — Isaiah 40:8',
-  'Whom shall I send, and who will go for us? Then said I, Here am I; send me. — Isaiah 6:8',
-  'The harvest truly is plenteous, but the labourers are few. — Matthew 9:37',
-  'The light shineth in darkness; and the darkness comprehended it not. — John 1:5',
-  'In every thing give thanks: for this is the will of God in Christ Jesus. — 1 Thessalonians 5:18',
-  'For unto us a child is born, unto us a son is given. — Isaiah 9:6'
-];
+/* ==================== 3D BOOK MAGAZINE READER ENGINE v2 ==================== */
+const SC12=['Behold, I will do a new thing; now it shall spring forth. — Isaiah 43:19','Beloved, let us love one another: for love is of God. — 1 John 4:7','My grace is sufficient for thee: for my strength is made perfect in weakness. — 2 Corinthians 12:9','He is not here: for he is risen, as he said. Come, see the place where the Lord lay. — Matthew 28:6','The effectual fervent prayer of a righteous man availeth much. — James 5:16','As for me and my house, we will serve the Lord. — Joshua 24:15','The grass withereth, the flower fadeth: but the word of our God shall stand for ever. — Isaiah 40:8','Whom shall I send, and who will go for us? Then said I, Here am I; send me. — Isaiah 6:8','The harvest truly is plenteous, but the labourers are few. — Matthew 9:37','The light shineth in darkness; and the darkness comprehended it not. — John 1:5','In every thing give thanks: for this is the will of God. — 1 Thessalonians 5:18','For unto us a child is born, unto us a son is given. — Isaiah 9:6'];
+let curBK=null,curSP=0,BK_SPREADS=[],BK_ZOOM=100;
 
-let curBookKey = null;
-let curSpreadIdx = 0;
-let bookSpreads = [];
-let bookPages = [];
-
-function generate10Pages(k){
-  const parts = k.split('-');
-  const y = Number(parts[0]) || 2026;
-  const n = Number(parts[1]) || 1;
-  const m = n - 1;
-  const monthName = M[m % 12] || 'October';
-  const theme = (DATA.mags[k] && DATA.mags[k].theme) || THEMES[m % 12] || 'Light in the Darkness';
-  const verse = SCRIPTURES_12[m % 12];
+function bmPages(k){
+  const pts=k.split('-'),y=Number(pts[0])||2026,n=Number(pts[1])||1,mi=n-1;
+  const mn=M[mi%12]||'Monthly',th=(DATA.mags[k]&&DATA.mags[k].theme)||THEMES[mi%12]||'Walking by Faith';
+  const sc=SC12[mi%12];
+  const imgs=['https://picsum.photos/seed/jpt_dawn26/600/148','https://picsum.photos/seed/jpt_faith26/600/140','https://picsum.photos/seed/jpt_village26/600/140'];
+  const tocItems=[
+    ['1','Official Cover &amp; Issue Details','Page 1'],
+    ['2','Pastoral Welcome &amp; Contents','Page 2'],
+    ['3','Pastoral Message &#8211; Part 1','Page 3'],
+    ['4','Pastoral Message &#8211; Part 2','Page 4'],
+    ['5','Healing &amp; Living Testimonies','Page 5'],
+    ['6','Bethesda Bible Institute Article','Page 6'],
+    ['7','Youth &amp; Family Fellowship','Page 7'],
+    ['8','Worship &amp; Song of the Month','Page 8'],
+    ['9','Rural Missions &amp; Village Outreach','Page 9'],
+    ['10','Church Calendar &amp; Benediction','Page 10']
+  ];
+  const tocHtml=tocItems.map(r=>`<div class="ptoc-r"><span class="ptn">${r[0]}.</span><span class="ptt">${r[1]}</span><span class="ptd"></span><span class="ptp">${r[2]}</span></div>`).join('');
 
   return [
-    // Page 1: Front Cover
-    {
-      num: 1,
-      isCover: true,
-      html: `
-        <div class="bp-cover">
-          <div>
-            <div class="cov-cross">✟</div>
-            <div class="cov-church">Bethesda Ministries JPT</div>
-            <div class="cov-loc">Worship, Word & Witness · Jaggayyapet, Krishna Dist.</div>
-            <div class="cov-badge">${monthName} ${y} · Issue No. ${n}</div>
-            <h1 class="cov-theme">"${theme}"</h1>
-            <div class="cov-quote">"${verse}"</div>
-          </div>
-          <div>
-            <ul class="cov-features">
-              <li>✦ Pastoral Lead Message by Pastor Ch. Yacob Garu</li>
-              <li>✦ Living Testimonies: Healing, Faith & Deliverance</li>
-              <li>✦ Bethesda Bible Institute: Sound Doctrinal Exegesis</li>
-              <li>✦ Youth Fellowship Corner & Song of the Month</li>
-              <li>✦ Community Missions & Weekly Church Calendar</li>
-            </ul>
-            <div style="font-size:0.7rem;color:var(--gl);margin-top:10px;letter-spacing:0.06em">VOLUME 24 · PUBLISHED BY BETHESDA MEDIA WING</div>
-          </div>
-        </div>
-      `
-    },
-    // Page 2: Table of Contents & Pastoral Greeting
-    {
-      num: 2,
-      header: `${monthName} ${y} Issue · Editorial`,
-      title: 'Pastoral Welcome & Contents',
-      sub: 'Greetings from Bethesda Ministries JPT',
-      scripture: 'Psalm 119:105 — "Thy word is a lamp unto my feet, and a light unto my path."',
-      html: `
-        <p class="bp-dropcap">Beloved Saints and Friends in Christ, We greet you warmly in the precious Name of our Lord and Saviour Jesus Christ. As we present this <strong>${monthName} ${y}</strong> issue, our earnest prayer is that every message, testimony, and scripture within these pages becomes a wellspring of spiritual replenishment and victory in your journey.</p>
-        <h4>Table of Contents</h4>
-        <ul style="font-size:0.8rem;line-height:1.7;padding-left:18px;margin-bottom:12px;color:#334155">
-          <li><strong>Page 1:</strong> Official Cover & Issue Theme</li>
-          <li><strong>Page 2:</strong> Editorial Welcome & Contents</li>
-          <li><strong>Pages 3–4:</strong> Lead Pastoral Message: ${theme}</li>
-          <li><strong>Page 5:</strong> Healing & Living Testimonies from JPT</li>
-          <li><strong>Page 6:</strong> Bethesda Bible Institute: Doctrinal Study</li>
-          <li><strong>Page 7:</strong> Youth & Family Fellowship: Salt & Light</li>
-          <li><strong>Page 8:</strong> Worship & Song of the Month (Telugu Hymnody)</li>
-          <li><strong>Page 9:</strong> Rural Missions & Village Outreach Report</li>
-          <li><strong>Page 10:</strong> Church Calendar, Prayer Helpline & Benediction</li>
-        </ul>
-        <div style="font-size:0.75rem;background:#f1f5f9;padding:8px 10px;border-radius:6px;color:#475569">
-          <strong>Editorial Board:</strong> Pastor Ch. Yacob Garu, Evangelistic Pastoral Team, and Bethesda Publications Wing.
-        </div>
-      `
-    },
-    // Page 3: Lead Pastoral Message (Part 1)
-    {
-      num: 3,
-      header: `Pastoral Message · Part 1`,
-      title: `${theme}`,
-      sub: `By Pastor Ch. Yacob Garu`,
-      scripture: verse,
-      html: `
-        <p class="bp-dropcap">Throughout human history, seasons of testing have always preceded seasons of divine triumph. When God calls His people into a deeper communion with Him, He does not merely offer temporary relief; He establishes an eternal foundation built upon the unshakeable rock of Christ Jesus.</p>
-        <h4>1. Anchored in the Unchanging Word</h4>
-        <p>In this generation where cultural trends shift like sand, the believer’s steadfastness lies in our devotion to the scriptures. God’s promises are not conditional upon earthly circumstances. When the storms blow and darkness looms, remember that the Lord who spoke light into existence has already ordained your victory.</p>
-        <h4>2. Walking by Faith, Not by Sight</h4>
-        <p>Faith is not the absence of questions, but the absolute presence of divine confidence. When Abraham went out not knowing whither he went, his sight was fastened upon the Architect and Builder whose foundation is eternal.</p>
-      `
-    },
-    // Page 4: Lead Pastoral Message (Part 2)
-    {
-      num: 4,
-      header: `Pastoral Message · Part 2`,
-      title: `Supernatural Peace & Prayer`,
-      sub: `Living with Eternal Purpose`,
-      scripture: `Philippians 4:7 — "And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus."`,
-      html: `
-        <h4>3. The Power of an Altar in Every Home</h4>
-        <p class="bp-dropcap">A praying family is an invincible fortress. When we kneel before God in sincere intercession, spiritual strongholds are broken, and generational blessings are released. We encourage every believer in Jaggayyapet and across the globe to protect your family prayer altar daily.</p>
-        <div style="background:rgba(198,164,91,0.12);border:1.5px solid var(--gold);padding:12px;border-radius:8px;margin-top:12px">
-          <h4 style="color:var(--navy);margin-top:0">Pastoral Blessing for Every Reader</h4>
-          <p style="font-style:italic;font-size:0.8rem;color:#334155;margin-bottom:0">"May the almighty hand of our Lord shield you, your home, your children, and your work. May His favor go before you as a pillar of fire by night and a cloud of glory by day. Walk in strength, walk in holiness, and be a shining witness of His grace."</p>
-          <div style="text-align:right;font-weight:700;color:var(--gold);font-size:0.8rem;margin-top:8px">— Pastor Ch. Yacob Garu</div>
-        </div>
-      `
-    },
-    // Page 5: Living Testimonies
-    {
-      num: 5,
-      header: `Living Testimonies · Miracles at JPT`,
-      title: `The Power of Answered Prayer`,
-      sub: `Praising God for His Healing and Deliverance`,
-      scripture: `Hebrews 13:8 — "Jesus Christ the same yesterday, and to day, and for ever."`,
-      html: `
-        <p class="bp-dropcap">Nothing strengthens the faith of believers more profoundly than witnessing God's miraculous intervention in our everyday lives. Here are genuine testimonies shared during our Sunday service at Bethesda Ministries JPT:</p>
-        <div style="border-bottom:1px solid #e2e8f0;padding-bottom:10px;margin-bottom:10px">
-          <strong style="color:var(--navy)">1. Complete Deliverance from Chronic Illness</strong>
-          <p style="font-size:0.79rem;margin-top:3px;color:#475569">"For over two years, I suffered from debilitating pain that doctors could not alleviate. During the Friday fasting prayer at Bethesda Ministries, as Pastor prayed, God touched my body instantly. Today, all medical reports are completely normal!" — <em>Sister Mary V., Jaggayyapet</em></p>
+    // --- SPREAD 0: COVER (single page) ---
+    {label:'Cover',single:true,pages:[
+      {cls:'lp pcov',content:`
+        <div>
+          <div class="pcov-cr">✟</div>
+          <div class="pcov-ch">Bethesda Ministries JPT</div>
+          <div class="pcov-lc">Worship, Word &amp; Witness &bull; Jaggayyapet, Andhra Pradesh</div>
+          <div class="pcov-bd">${mn} ${y} &bull; Issue No.${n}</div>
+          <h1 class="pcov-th">"${th}"</h1>
+          <div class="pcov-qv">"${sc}"</div>
         </div>
         <div>
-          <strong style="color:var(--navy)">2. Financial Breakthrough & Family Restoration</strong>
-          <p style="font-size:0.79rem;margin-top:3px;color:#475569">"Our family was in overwhelming debt and near despair. Through consistent midweek prayers and standing on God's covenant promises, the Lord opened unexpected avenues of provision and restored unity in our household." — <em>Brother David K., Krishna Dist.</em></p>
-        </div>
-      `
-    },
-    // Page 6: Bethesda Bible Institute
-    {
-      num: 6,
-      header: `Bethesda Bible Institute · Sound Doctrine`,
-      title: `Foundations of the Faith`,
-      sub: `The Covenants of Grace & Eternal Redemption`,
-      scripture: `2 Timothy 3:16 — "All scripture is given by inspiration of God, and is profitable for doctrine, for reproof, for correction."`,
-      html: `
-        <p class="bp-dropcap">Bethesda Bible Institute is dedicated to raising disciples grounded firmly in the unadulterated truth of the Word. In this term's study module, we explore the depth of God's redemptive covenant:</p>
-        <h4>The Four Pillars of Discipleship</h4>
-        <ul style="font-size:0.8rem;line-height:1.65;padding-left:18px;margin-bottom:10px;color:#334155">
-          <li><strong>Justification by Grace:</strong> Salvation is God's free gift received solely by faith in the finished work of the Cross (Eph 2:8-9).</li>
-          <li><strong>The Ministry of the Holy Spirit:</strong> Living an empowered Christian life through the fruit, guidance, and spiritual gifts of the Spirit.</li>
-          <li><strong>The Ministry of Intercession:</strong> Standing in the gap for our families, church, and nation through fervent, scripture-saturated prayer.</li>
-          <li><strong>The Great Commission:</strong> Actively sharing the Gospel in our neighborhoods, towns, and marketplace.</li>
-        </ul>
-        <p style="font-size:0.78rem;font-style:italic;color:#64748b">Admissions open for Bible Institute evening diploma modules. Inquire at church desk.</p>
-      `
-    },
-    // Page 7: Youth & Family Fellowship
-    {
-      num: 7,
-      header: `Youth & Family · Salt and Light`,
-      title: `Anchored in a Distracted World`,
-      sub: `Equipping the Next Generation for Christ`,
-      scripture: `1 Timothy 4:12 — "Let no man despise thy youth; but be thou an example of the believers, in word, in conversation, in charity, in spirit, in faith, in purity."`,
-      html: `
-        <p class="bp-dropcap">Our youth are not just the future of the church—they are the active, vibrant church of today! Facing unprecedented digital distractions and worldly pressures, young believers are called to shine as beacon lights of uncompromising integrity.</p>
-        <h4>3 Keys for Spiritual Victory in Youth:</h4>
-        <ol style="font-size:0.8rem;line-height:1.65;padding-left:18px;margin-bottom:10px;color:#334155">
-          <li><strong>Daily Scripture Devotion:</strong> Guard your mind by hiding God's Word in your heart before opening social media.</li>
-          <li><strong>Godly Fellowship:</strong> Surround yourself with brothers and sisters who encourage your walk with God.</li>
-          <li><strong>Kingdom Purpose:</strong> Use your talents, education, and career to glorify God and bless others.</li>
-        </ol>
-        <p style="font-size:0.78rem;background:#f8fafc;padding:8px;border-radius:6px;color:#334155"><strong>Youth Fellowship:</strong> Every Monday at 6:30 PM in the Prayer Hall. All youths and students welcome!</p>
-      `
-    },
-    // Page 8: Worship & Song of the Month
-    {
-      num: 8,
-      header: `Worship & Hymnody · Song of the Month`,
-      title: `అందరికీ ప్రేమపూర్వక ఆహ్వానం`,
-      sub: `Bethesda Ministries JPT Worship Hymn`,
-      scripture: `Psalm 100:2 — "Serve the Lord with gladness: come before his presence with singing."`,
-      html: `
-        <p class="bp-dropcap">Music and worship at Bethesda Ministries are dedicated to exalting the living Lord and opening the heavens for the Holy Spirit to minister to weary hearts. Here is our featured worship chorus for ${monthName}:</p>
-        <div style="background:#fefce8;border:1px solid #fef08a;padding:12px;border-radius:8px;margin-bottom:10px;text-align:center">
-          <h4 style="color:#854d0e;margin:0 0 6px">Chorus Lyrics:</h4>
-          <p style="font-size:0.85rem;color:#713f12;line-height:1.7;margin:0">
-            అందరికీ ప్రేమపూర్వక ఆహ్వానం,<br>
-            యేసు ప్రభువు సన్నిధిలో సంతోషం!<br>
-            జీవపు ఊటయైన క్రీస్తుని యొద్దకు రండి,<br>
-            రక్షణ, శాంతి, స్వస్థతను పొందండి!
-          </p>
-        </div>
-        <h4>English Devotional Transliteration</h4>
-        <p style="font-size:0.8rem;font-style:italic;color:#475569">"A loving welcome to one and all, fullness of joy in the presence of Jesus Christ! Come unto the living fountain of grace and receive eternal salvation, peace, and healing."</p>
-      `
-    },
-    // Page 9: Missions & Outreaches
-    {
-      num: 9,
-      header: `Missions & Evangelism · Harvest Field`,
-      title: `Taking the Gospel Beyond Walls`,
-      sub: `Rural Outreach & Village Ministry Updates`,
-      scripture: `Mark 16:15 — "Go ye into all the world, and preach the gospel to every creature."`,
-      html: `
-        <p class="bp-dropcap">The heartbeat of Bethesda Ministries is evangelism. Every Saturday, our outreach teams travel to neighboring villages and rural settlements across Krishna district to distribute Gospel tracts, conduct open-air meetings, and pray for the sick.</p>
-        <h4>Recent Outreach Highlights:</h4>
-        <ul style="font-size:0.8rem;line-height:1.65;padding-left:18px;margin-bottom:12px;color:#334155">
-          <li>Over 1,200 Gospel tracts and New Testaments distributed to families.</li>
-          <li>Free medical prayer camp and ration support provided to elderly widows.</li>
-          <li>New children’s Sunday school branch initiated in rural hamlet.</li>
-        </ul>
-        <h4>Prayer Points for this Month:</h4>
-        <p style="font-size:0.8rem;color:#475569">1. Revival among unreached rural communities.<br>2. Strength, divine health, and protection for our evangelistic teams.<br>3. God's provision for expanding the Bethesda Ministry campus.</p>
-      `
-    },
-    // Page 10: Back Cover
-    {
-      num: 10,
-      isBack: true,
-      html: `
-        <div class="bp-back">
-          <div>
-            <div style="font-size:1.8rem;color:var(--gold);margin-bottom:4px">✟</div>
-            <div class="bc-title">Bethesda Ministries JPT</div>
-            <div style="font-size:0.75rem;color:var(--gl);margin-bottom:12px">Worship, Word & Witness · Weekly Service Schedule</div>
-            <table>
-              <tr><td>Sunday 9:00 AM</td><td>Sunday Worship Service & Sunday School</td></tr>
-              <tr><td>Monday 6:30 PM</td><td>Youth Fellowship & Intercessory Prayer</td></tr>
-              <tr><td>Wednesday 7:00 PM</td><td>Midweek Bible Study & Family Prayer</td></tr>
-              <tr><td>Friday 6:00 PM</td><td>Fasting, Healing & Deliverance Meeting</td></tr>
-              <tr><td>Saturday 5:00 PM</td><td>Village Outreach & Evangelism Ministry</td></tr>
-            </table>
-          </div>
-          <div>
-            <div style="font-size:0.75rem;color:#cbd5e1;line-height:1.6;margin-bottom:10px">
-              <strong>Church Campus:</strong> Main Hall, Jaggayyapet, Krishna Dist., Andhra Pradesh.<br>
-              <strong>24/7 Prayer Helpline:</strong> Contact pastoral leadership for urgent prayer.<br>
-              <strong>Watch Online:</strong> Search <em>"Bethesda Ministries JPT"</em> on YouTube.
-            </div>
-            <div class="bc-benediction">
-              "The Lord bless thee, and keep thee: The Lord make his face shine upon thee, and be gracious unto thee: The Lord lift up his countenance upon thee, and give thee peace." — Numbers 6:24-26
-            </div>
-          </div>
-        </div>
-      `
-    }
-  ];
-}
+          <ul class="pcov-fl">
+            <li>Pastoral Lead Message by Pastor Ch. Yacob Garu</li>
+            <li>Living Testimonies: Healing, Faith &amp; Deliverance</li>
+            <li>Bethesda Bible Institute: Sound Doctrinal Study</li>
+            <li>Youth Fellowship Corner &amp; Song of the Month</li>
+            <li>Village Missions &amp; Weekly Church Calendar</li>
+          </ul>
+          <div class="pcov-vl">Volume 24 &bull; Bethesda Publications Wing</div>
+        </div>`}
+    ]},
 
-function renderPageContent(p){
-  if(p.isCover || p.isBack) return p.html;
-  return `
-    <div class="book-page">
-      <div>
-        <div class="bp-header">
-          <span>${p.header||'Bethesda Ministries JPT'}</span>
-          <span class="bp-num">Page ${p.num}</span>
+    // --- SPREAD 1: Pages 2–3 ---
+    {label:'Pages 2–3',pages:[
+      // LEFT PAGE 2: Editorial & TOC
+      {cls:'lp',num:2,content:`
+        <div class="phd"><span>${mn} ${y} Issue</span><span>Editorial</span></div>
+        <h2 class="pt1">Pastoral Welcome &amp; Contents</h2>
+        <div class="pt2">Greetings from Bethesda Ministries JPT</div>
+        <div class="pqb"><span class="qq">&#8220;</span><span class="qt">Psalm 119:105 &mdash; &ldquo;Thy word is a lamp unto my feet, and a light unto my path.&rdquo;</span></div>
+        <div class="pbd pdrop">
+          <p>Beloved Saints and Friends in Christ, We greet you warmly in the precious Name of our Lord and Saviour Jesus Christ. As we present this <strong>${mn} ${y}</strong> issue, our earnest prayer is that every message, testimony, and scripture within these pages becomes a wellspring of spiritual replenishment and victory in your journey.</p>
         </div>
-        <h2 class="bp-title">${p.title}</h2>
-        <div class="bp-sub">${p.sub}</div>
-        ${p.scripture?`<div class="bp-scripture">${p.scripture}</div>`:''}
-        <div class="bp-content">${p.html}</div>
-      </div>
-      <div class="bp-footer">
-        <span>Bethesda Monthly Magazine</span>
-        <span class="bp-num">- ${p.num} -</span>
-      </div>
-    </div>
-  `;
+        <div class="ptoc">
+          <div class="ptoc-h"><span>&#128218; Table of Contents</span><span>&#127807;</span></div>
+          ${tocHtml}
+        </div>
+        <div class="pft"><span class="fc">Bethesda Ministries JPT</span><span class="fn">2</span></div>`},
+      // RIGHT PAGE 3: Pastoral Message Part 1
+      {cls:'rp',num:3,content:`
+        <div class="phd"><span>${mn} ${y} Issue</span><span>Pastoral Message - Part 1</span></div>
+        <h2 class="pt1">${th}</h2>
+        <div class="pau">&#128100; By Pastor Ch. Yacob Garu</div>
+        <div class="psc"><span class="si">&#128218;</span><span class="st"><em>${sc}</em></span></div>
+        <div class="pbd pdrop">
+          <p>Throughout human history, seasons of testing have always preceded seasons of divine triumph. When God calls His people into a deeper communion with Him, He does not merely offer temporary relief; He brings lasting light that dispels the deepest darkness.</p>
+          <p>The world around us often seems filled with uncertainty, fear, and confusion. Yet, the Word of God reminds us that the light of Christ is greater than any darkness. His presence gives direction, peace, and hope, even in the most challenging times.</p>
+        </div>
+        <div class="pim"><img src="${imgs[0]}" alt="Dawn" loading="lazy" onerror="this.style.height='148px';this.style.background='linear-gradient(135deg,#c6a45b22,#1a2744)';this.src=''"></div>
+        <div class="pft"><span class="fc">Bethesda Ministries JPT</span><span class="fn">3</span></div>`}
+    ]},
+
+    // --- SPREAD 2: Pages 4–5 ---
+    {label:'Pages 4–5',pages:[
+      {cls:'lp',num:4,content:`
+        <div class="phd"><span>${mn} ${y} Issue</span><span>Pastoral Message - Part 2</span></div>
+        <h2 class="pt1">Supernatural Peace &amp; Prayer</h2>
+        <div class="pt2">Living with Eternal Purpose</div>
+        <div class="psc"><span class="si">&#128218;</span><span class="st"><em>Philippians 4:7 &mdash; "And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus."</em></span></div>
+        <div class="pbd pdrop">
+          <h4>3. The Power of an Altar in Every Home</h4>
+          <p>A praying family is an invincible fortress. When we kneel before God in sincere intercession, spiritual strongholds are broken and generational blessings are released. We encourage every believer to protect your family prayer altar daily.</p>
+          <div style="background:rgba(198,164,91,0.12);border:1.5px solid #c6a45b;padding:11px;border-radius:8px;margin-top:9px">
+            <h4 style="color:#1a2744;margin-top:0">Pastoral Blessing for Every Reader</h4>
+            <p style="font-style:italic;font-size:.77rem;color:#334155;margin-bottom:0">"May the almighty hand of our Lord shield you, your home, your children, and your work. May His favor go before you as a pillar of fire by night and a cloud of glory by day. Walk in strength, walk in holiness."</p>
+            <div style="text-align:right;font-weight:700;color:#c6a45b;font-size:.76rem;margin-top:7px">&mdash; Pastor Ch. Yacob Garu</div>
+          </div>
+        </div>
+        <div class="pft"><span class="fc">Bethesda Ministries JPT</span><span class="fn">4</span></div>`},
+      {cls:'rp',num:5,content:`
+        <div class="phd"><span>${mn} ${y} Issue</span><span>Living Testimonies</span></div>
+        <h2 class="pt1">The Power of Answered Prayer</h2>
+        <div class="pt2">Praising God for Healing &amp; Deliverance</div>
+        <div class="psc"><span class="si">&#10024;</span><span class="st"><em>Hebrews 13:8 &mdash; "Jesus Christ the same yesterday, and to day, and for ever."</em></span></div>
+        <div class="pbd pdrop">
+          <div style="border-bottom:1px solid #e2e8f0;padding-bottom:9px;margin-bottom:9px">
+            <strong>1. Complete Deliverance from Chronic Illness</strong>
+            <p style="font-size:.77rem;margin-top:3px;color:#475569">"For over two years I suffered from debilitating pain. During the Friday fasting prayer at Bethesda Ministries, as Pastor prayed, God touched my body instantly. Today, all medical reports are completely normal!" &mdash; <em>Sister Mary V., Jaggayyapet</em></p>
+          </div>
+          <div>
+            <strong>2. Financial Breakthrough &amp; Family Restoration</strong>
+            <p style="font-size:.77rem;margin-top:3px;color:#475569">"Through consistent midweek prayers and standing on God's covenant promises, the Lord opened unexpected avenues of provision and restored unity in our household." &mdash; <em>Brother David K., Krishna Dist.</em></p>
+          </div>
+        </div>
+        <div class="pim"><img src="${imgs[1]}" alt="Hope" loading="lazy" onerror="this.style.height='140px';this.style.background='linear-gradient(135deg,#c6a45b22,#1a2744)';this.src=''"></div>
+        <div class="pft"><span class="fc">Bethesda Ministries JPT</span><span class="fn">5</span></div>`}
+    ]},
+
+    // --- SPREAD 3: Pages 6–7 ---
+    {label:'Pages 6–7',pages:[
+      {cls:'lp',num:6,content:`
+        <div class="phd"><span>${mn} ${y} Issue</span><span>Bible Institute</span></div>
+        <h2 class="pt1">Foundations of the Faith</h2>
+        <div class="pt2">The Covenants of Grace &amp; Eternal Redemption</div>
+        <div class="psc"><span class="si">&#128218;</span><span class="st"><em>2 Timothy 3:16 &mdash; "All scripture is given by inspiration of God, and is profitable for doctrine, for reproof, for correction."</em></span></div>
+        <div class="pbd pdrop">
+          <p>Bethesda Bible Institute is dedicated to raising disciples grounded firmly in the unadulterated truth of the Word. This term's module explores the depth of God's redemptive covenant:</p>
+          <h4>The Four Pillars of Discipleship</h4>
+          <ul>
+            <li><strong>Justification by Grace:</strong> Salvation is God's free gift received solely by faith (Eph 2:8-9).</li>
+            <li><strong>Ministry of the Holy Spirit:</strong> Living an empowered life through the fruit and gifts of the Spirit.</li>
+            <li><strong>Ministry of Intercession:</strong> Standing in the gap for families, church, and nation through prayer.</li>
+            <li><strong>The Great Commission:</strong> Actively sharing the Gospel in marketplace and community.</li>
+          </ul>
+          <p style="font-size:.75rem;font-style:italic;color:#64748b">Admissions open for Bible Institute evening diploma modules. Inquire at church desk.</p>
+        </div>
+        <div class="pft"><span class="fc">Bethesda Ministries JPT</span><span class="fn">6</span></div>`},
+      {cls:'rp',num:7,content:`
+        <div class="phd"><span>${mn} ${y} Issue</span><span>Youth &amp; Family</span></div>
+        <h2 class="pt1">Anchored in a Distracted World</h2>
+        <div class="pt2">Equipping the Next Generation for Christ</div>
+        <div class="psc"><span class="si">&#9733;</span><span class="st"><em>1 Timothy 4:12 &mdash; "Let no man despise thy youth; but be thou an example of the believers, in word, in faith, in purity."</em></span></div>
+        <div class="pbd pdrop">
+          <p>Our youth are not just the future of the church &mdash; they are the active, vibrant church of today! Facing unprecedented digital distractions, young believers are called to shine as beacon lights of uncompromising integrity.</p>
+          <h4>3 Keys for Spiritual Victory in Youth:</h4>
+          <ol>
+            <li><strong>Daily Scripture Devotion:</strong> Guard your mind by hiding God&rsquo;s Word in your heart before opening social media.</li>
+            <li><strong>Godly Fellowship:</strong> Surround yourself with brothers and sisters who encourage your walk with God.</li>
+            <li><strong>Kingdom Purpose:</strong> Use your talents, education, and career to glorify God and bless others.</li>
+          </ol>
+          <div style="font-size:.75rem;background:#f8fafc;padding:8px;border-radius:6px;color:#334155"><strong>Youth Fellowship:</strong> Every Monday at 6:30 PM in the Prayer Hall. All youth and students welcome!</div>
+        </div>
+        <div class="pft"><span class="fc">Bethesda Ministries JPT</span><span class="fn">7</span></div>`}
+    ]},
+
+    // --- SPREAD 4: Pages 8–9 ---
+    {label:'Pages 8–9',pages:[
+      {cls:'lp',num:8,content:`
+        <div class="phd"><span>${mn} ${y} Issue</span><span>Worship &amp; Hymnody</span></div>
+        <h2 class="pt1">&#3074;&#3074;&#3078;&#3122;&#3056;&#3074;&#3121; &#3114;&#3149;&#3122;&#3143;&#3121;&#3114;&#3137;&#3122;&#3149;&#3125;&#3056; &#3078;&#3144;&#3094;&#3149;&#3125;&#3134;&#3116;&#3074;</h2>
+        <div class="pt2">Song of the Month &mdash; Bethesda Ministries JPT</div>
+        <div class="psc"><span class="si">&#127925;</span><span class="st"><em>Psalm 100:2 &mdash; "Serve the Lord with gladness: come before his presence with singing."</em></span></div>
+        <div class="pbd">
+          <div style="background:#fefce8;border:1px solid #fef08a;padding:12px;border-radius:8px;margin-bottom:10px;text-align:center">
+            <h4 style="color:#854d0e;margin:0 0 6px;font-size:.82rem">Telugu Worship Chorus</h4>
+            <p style="font-size:.82rem;color:#713f12;line-height:1.72;margin:0">అందరికీ ప్రేమపూర్వక ఆహ్వానం,<br>యేసు ప్రభువు సన్నిధిలో సంతోషం!<br>జీవపు ఊటయైన క్రీస్తుని యొద్దకు రండి,<br>రక్షణ, శాంతి, స్వస్థతను పొందండి!</p>
+          </div>
+          <h4>English Devotional</h4>
+          <p style="font-style:italic;font-size:.77rem;color:#475569">"A loving welcome to one and all &mdash; fullness of joy in the presence of Jesus Christ! Come unto the living fountain of grace and receive eternal salvation, peace, and healing."</p>
+        </div>
+        <div class="pft"><span class="fc">Bethesda Ministries JPT</span><span class="fn">8</span></div>`},
+      {cls:'rp',num:9,content:`
+        <div class="phd"><span>${mn} ${y} Issue</span><span>Missions &amp; Evangelism</span></div>
+        <h2 class="pt1">Taking the Gospel Beyond Walls</h2>
+        <div class="pt2">Rural Outreach &amp; Village Ministry Updates</div>
+        <div class="psc"><span class="si">&#127758;</span><span class="st"><em>Mark 16:15 &mdash; "Go ye into all the world, and preach the gospel to every creature."</em></span></div>
+        <div class="pbd pdrop">
+          <p>Every Saturday our outreach teams travel to neighboring villages across Krishna district to distribute Gospel tracts, conduct open-air meetings, and pray for the sick.</p>
+          <h4>Recent Outreach Highlights:</h4>
+          <ul>
+            <li>Over 1,200 Gospel tracts and New Testaments distributed.</li>
+            <li>Free medical prayer camp and ration support for elderly widows.</li>
+            <li>New children&rsquo;s Sunday school branch in rural hamlet.</li>
+          </ul>
+        </div>
+        <div class="pim"><img src="${imgs[2]}" alt="Village Mission" loading="lazy" onerror="this.style.height='140px';this.style.background='linear-gradient(135deg,#c6a45b22,#1a2744)';this.src=''"></div>
+        <div class="pft"><span class="fc">Bethesda Ministries JPT</span><span class="fn">9</span></div>`}
+    ]},
+
+    // --- SPREAD 5: BACK COVER (single page) ---
+    {label:'Back Cover',single:true,pages:[
+      {cls:'rp pbk',content:`
+        <div>
+          <div style="font-size:1.7rem;color:#c6a45b;margin-bottom:3px">✟</div>
+          <div class="pbk-ttl">Bethesda Ministries JPT</div>
+          <div style="font-size:.72rem;color:var(--gl);margin-bottom:12px">Worship, Word &amp; Witness &bull; Weekly Service Schedule</div>
+          <table>
+            <tr><td>Sunday 9:00 AM</td><td>Sunday Worship Service &amp; Sunday School</td></tr>
+            <tr><td>Monday 6:30 PM</td><td>Youth Fellowship &amp; Intercessory Prayer</td></tr>
+            <tr><td>Wednesday 7:00 PM</td><td>Midweek Bible Study &amp; Family Prayer</td></tr>
+            <tr><td>Friday 6:00 PM</td><td>Fasting, Healing &amp; Deliverance Meeting</td></tr>
+            <tr><td>Saturday 5:00 PM</td><td>Village Outreach &amp; Evangelism Ministry</td></tr>
+          </table>
+        </div>
+        <div>
+          <div style="font-size:.72rem;color:#cbd5e1;line-height:1.6;margin-bottom:9px">
+            <strong>Church:</strong> Bethesda Pentecost Church, Jaggayyapet, Krishna Dist., Andhra Pradesh.<br>
+            <strong>24/7 Prayer Helpline:</strong> Contact pastoral leadership for urgent prayer needs.<br>
+            <strong>Watch Online:</strong> Search <em>"Bethesda Ministries JPT"</em> on YouTube.
+          </div>
+          <div class="pbk-bn">"The Lord bless thee, and keep thee: The Lord make his face shine upon thee, and be gracious unto thee: The Lord lift up his countenance upon thee, and give thee peace." &mdash; Numbers 6:24-26</div>
+        </div>`}
+    ]}
+  ];
 }
 
 function openBookReader(k){
-  curBookKey = k;
-  bookPages = generate10Pages(k);
-
-  // Group into spreads:
-  // Spread 0: Page 1 (Cover)
-  // Spread 1: Page 2 & Page 3
-  // Spread 2: Page 4 & Page 5
-  // Spread 3: Page 6 & Page 7
-  // Spread 4: Page 8 & Page 9
-  // Spread 5: Page 10 (Back Cover)
-  bookSpreads = [
-    { label: 'Cover', p1: 1, p2: null },
-    { label: 'Pages 2–3', p1: 2, p2: 3 },
-    { label: 'Pages 4–5', p1: 4, p2: 5 },
-    { label: 'Pages 6–7', p1: 6, p2: 7 },
-    { label: 'Pages 8–9', p1: 8, p2: 9 },
-    { label: 'Back Cover', p1: 10, p2: null }
-  ];
-
-  curSpreadIdx = 0;
-  
-  const parts = k.split('-');
-  const y = parts[0] || '2026';
-  const n = Number(parts[1]) || 1;
-  const monthName = M[n - 1] || 'Monthly';
-  const theme = (DATA.mags[k] && DATA.mags[k].theme) || THEMES[(n - 1) % 12] || 'Living by Faith';
-
-  const tEl = $('bmTitle');
-  if(tEl) tEl.textContent = `Bethesda Ministries · ${monthName} ${y} Issue`;
-  const sEl = $('bmSub');
-  if(sEl) sEl.textContent = `Theme: "${theme}" · 3D Book Magazine Reader`;
-
-  renderSpread();
+  curBK=k;curSP=0;BK_ZOOM=100;
+  BK_SPREADS=bmPages(k);
+  const pts=k.split('-'),y=pts[0]||'2026',n=Number(pts[1])||1;
+  const mn=M[n-1]||'Monthly',th=(DATA.mags[k]&&DATA.mags[k].theme)||THEMES[(n-1)%12]||'Living by Faith';
+  const tEl=$('bmIssueTitle'),sEl=$('bmIssueTheme');
+  if(tEl)tEl.textContent=mn+' '+y+' Issue';
+  if(sEl)sEl.textContent='Theme: "'+th+'"';
+  const sl=$('bmSlider');if(sl){sl.max=BK_SPREADS.length-1;sl.value=0;}
   $('bookModal').classList.add('on');
+  bmRender();
 }
 
 function closeBookReader(){
-  const m = $('bookModal');
-  if(m) m.classList.remove('on');
+  const m=$('bookModal');
+  if(m)m.classList.remove('on');
 }
 
-function renderSpread(){
-  const c = $('bmContainer');
-  if(!c) return;
+function bmRender(){
+  const sp=BK_SPREADS[curSP];if(!sp)return;
+  const book=$('bmBook');if(!book)return;
 
-  const sp = bookSpreads[curSpreadIdx];
-  const p1 = bookPages[sp.p1 - 1];
-  const p2 = sp.p2 ? bookPages[sp.p2 - 1] : null;
+  // Update scale
+  book.style.transform='scale('+BK_ZOOM/100+')';
+  book.style.transformOrigin='center center';
 
-  // Build scrubber
-  const sc = $('bmScrubber');
-  if(sc){
-    sc.innerHTML = bookSpreads.map((s, idx) => `
-      <button class="book-tab ${idx === curSpreadIdx ? 'on' : ''}" onclick="goToSpread(${idx})">${s.label}</button>
-    `).join('');
-  }
-
-  // Update badge & buttons
-  const badge = $('bmPageBadge');
-  if(badge){
-    badge.textContent = sp.label + (sp.p2 ? ` (Pages ${sp.p1} & ${sp.p2} of 10)` : ` (Page ${sp.p1} of 10)`);
-  }
-
-  const prevBtn = $('bmPrevBtn');
-  if(prevBtn) prevBtn.disabled = curSpreadIdx === 0;
-
-  const nextBtn = $('bmNextBtn');
-  if(nextBtn) nextBtn.disabled = curSpreadIdx === bookSpreads.length - 1;
-
-  // Responsive layout: 2-page spread if p2 exists, else single page
-  if(p2){
-    c.innerHTML = `
-      <div class="book-spread">
-        <div class="book-page left" onclick="prevSpread()">${renderPageContent(p1)}</div>
-        <div class="book-spine"></div>
-        <div class="book-page right" onclick="nextSpread()">${renderPageContent(p2)}</div>
-      </div>
-      <!-- Mobile single page fallback -->
-      <div class="book-single">
-        ${renderPageContent(p1)}
-      </div>
-    `;
+  // Build HTML
+  if(sp.single){
+    // Single page mode (cover or back)
+    const pg=sp.pages[0];
+    book.className='bm-book single';
+    book.innerHTML=`<div class="bm-pg ${pg.cls}">${pg.content}</div>`;
   } else {
-    c.innerHTML = `
-      <div class="book-single">
-        ${renderPageContent(p1)}
-      </div>
+    // Two-page spread
+    const lp=sp.pages[0],rp=sp.pages[1];
+    book.className='bm-book';
+    book.innerHTML=`
+      <div class="bm-pg ${lp.cls}">${lp.content}</div>
+      <div class="bm-spine"></div>
+      <div class="bm-pg ${rp.cls}">${rp.content}</div>
     `;
   }
-}
 
-function nextSpread(){
-  if(curSpreadIdx < bookSpreads.length - 1){
-    curSpreadIdx++;
-    renderSpread();
+  // Update prev/next buttons
+  const prev=$('bmPrev'),next=$('bmNext');
+  if(prev)prev.disabled=curSP===0;
+  if(next)next.disabled=curSP===BK_SPREADS.length-1;
+
+  // Update page label
+  const lbl=$('bmPgLabel');
+  if(lbl){
+    if(sp.single){
+      const pNum=sp.pages[0].num;
+      lbl.textContent='Page '+(pNum||sp.label)+' of 10';
+    } else {
+      lbl.textContent='Pages '+sp.pages[0].num+'–'+sp.pages[1].num+' of 10';
+    }
   }
+
+  // Update slider
+  const sl=$('bmSlider');if(sl)sl.value=curSP;
+
+  // Add mobile class
+  book.classList.add('mob-show');
 }
 
-function prevSpread(){
-  if(curSpreadIdx > 0){
-    curSpreadIdx--;
-    renderSpread();
+function bmNext(){if(curSP<BK_SPREADS.length-1){curSP++;bmRender();}}
+function bmPrev(){if(curSP>0){curSP--;bmRender();}}
+
+// Download PDF via print
+function bmDownload(){
+  const sp=BK_SPREADS;
+  let pages='';
+  sp.forEach(spread=>{
+    spread.pages.forEach(pg=>{
+      pages+=`<div class="prt-page">${pg.content}</div>`;
+    });
+  });
+  const prtCSS='@page{size:A4;margin:1.8cm}*{box-sizing:border-box}body{font-family:Georgia,serif;color:#1a2744;background:#fff}.prt-page{page-break-after:always;padding:20px;border:1px solid #e2e8f0;margin-bottom:20px}.prt-page:last-child{page-break-after:avoid}.phd{display:flex;justify-content:space-between;border-bottom:2px solid #c6a45b;padding-bottom:6px;margin-bottom:14px;font:600 .7rem sans-serif;color:#c6a45b}.pt1{font:800 1.5rem Georgia,serif;color:#1a2744;margin-bottom:4px}.pt2{font:400 .85rem sans-serif;color:#64748b;margin-bottom:10px}.psc,.pqb{background:#fdf4e0;border-left:3px solid #c6a45b;padding:8px 12px;margin-bottom:10px;font-style:italic;font-size:.8rem;color:#4a3728}.pbd{font:400 .82rem Georgia,serif;color:#2c3e50;line-height:1.65}.pbd p{margin-bottom:7px}.pbd h4{font:700 .88rem Georgia,serif;color:#1a2744;margin:8px 0 3px}.pbd ul,.pbd ol{padding-left:16px}.pft{display:flex;justify-content:space-between;border-top:1px solid #e2e8f0;padding-top:7px;margin-top:10px;font-size:.7rem;color:#94a3b8}.pft .fn{background:#c6a45b;color:#fff;width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:700}.pcov{background:#0d1b3e;color:#fff;padding:30px;min-height:280px}.pcov-ch{font:700 1rem serif;letter-spacing:.1em;text-transform:uppercase}.pcov-th{font:800 1.4rem serif;color:#c6a45b;margin:12px 0}.pbk{background:#0d1b3e;color:#fff;padding:30px}img{max-width:100%;height:auto}';
+  const prtHtml='<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Bethesda Ministries JPT - Magazine</title><sty'+'le>'+prtCSS+'</sty'+'le></head><body>'+pages+'<scr'+'ipt>window.onload=function(){window.print();}</scr'+'ipt></body></html>';
+  const blob=new Blob([prtHtml],{type:'text/html'});
+  const url=URL.createObjectURL(blob);
+  const win=window.open(url,'_blank');
+  if(win){setTimeout(()=>URL.revokeObjectURL(url),8000);}
+}
+
+// Wire events
+document.addEventListener('click',e=>{
+  const t=e.target;
+  if(t.id==='bmCloseBtn'||t.closest('#bmCloseBtn')){closeBookReader();return;}
+  if(t.id==='bmNext'||t.closest('#bmNext')){bmNext();return;}
+  if(t.id==='bmPrev'||t.closest('#bmPrev')){bmPrev();return;}
+  if(t.id==='bmDlBtn'||t.closest('#bmDlBtn')){bmDownload();return;}
+  if(t.id==='bmFsBtn'||t.closest('#bmFsBtn')){
+    const el=$('bookModal');
+    if(!document.fullscreenElement){el.requestFullscreen&&el.requestFullscreen().catch(()=>{});}
+    else{document.exitFullscreen&&document.exitFullscreen().catch(()=>{});}
+    return;
   }
-}
-
-function goToSpread(idx){
-  if(idx >= 0 && idx < bookSpreads.length){
-    curSpreadIdx = idx;
-    renderSpread();
+  if(t.id==='bmShBtn'||t.closest('#bmShBtn')){
+    if(navigator.share){navigator.share({title:'Bethesda Ministries - Monthly Magazine',url:location.href}).catch(()=>{});}
+    else{navigator.clipboard&&navigator.clipboard.writeText(location.href).then(()=>showToast('Link copied!')).catch(()=>{});}
+    return;
   }
-}
-
-// Wire keyboard and reader buttons
-document.addEventListener('keydown', e => {
-  const bm = $('bookModal');
-  if(!bm || !bm.classList.contains('on')) return;
-  if(e.key === 'ArrowRight' || e.key === 'PageDown') nextSpread();
-  if(e.key === 'ArrowLeft' || e.key === 'PageUp') prevSpread();
-  if(e.key === 'Escape') closeBookReader();
+  if(t.id==='bmZmOut'||t.closest('#bmZmOut')){BK_ZOOM=Math.max(50,BK_ZOOM-10);const p=$('bmZmPct');if(p)p.textContent=BK_ZOOM+'%';const b=$('bmBook');if(b){b.style.transform='scale('+BK_ZOOM/100+')';b.style.transformOrigin='center center';}return;}
+  if(t.id==='bmZmIn'||t.closest('#bmZmIn')){BK_ZOOM=Math.min(150,BK_ZOOM+10);const p=$('bmZmPct');if(p)p.textContent=BK_ZOOM+'%';const b=$('bmBook');if(b){b.style.transform='scale('+BK_ZOOM/100+')';b.style.transformOrigin='center center';}return;}
 });
 
-document.addEventListener('click', e => {
-  const t = e.target;
-  if(t.id === 'bmCloseBtn' || t.closest('#bmCloseBtn')){ closeBookReader(); return; }
-  if(t.id === 'bmNextBtn' || t.closest('#bmNextBtn')){ nextSpread(); return; }
-  if(t.id === 'bmPrevBtn' || t.closest('#bmPrevBtn')){ prevSpread(); return; }
-  if(t.id === 'bookModal' && t === e.currentTarget){ closeBookReader(); return; }
+document.addEventListener('input',e=>{
+  if(e.target.id==='bmSlider'){curSP=Number(e.target.value);bmRender();}
+});
+
+document.addEventListener('keydown',e=>{
+  const bm=$('bookModal');if(!bm||!bm.classList.contains('on'))return;
+  if(e.key==='ArrowRight'||e.key==='PageDown')bmNext();
+  if(e.key==='ArrowLeft'||e.key==='PageUp')bmPrev();
+  if(e.key==='Escape')closeBookReader();
 });
 
 </script>
